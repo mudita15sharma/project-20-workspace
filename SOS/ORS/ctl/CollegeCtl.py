@@ -8,14 +8,6 @@ from ..service.CollegeService import CollegeService
 
 class CollegeCtl(BaseCtl):
 
-    def request_to_form(self, requestForm):
-        self.form['id'] = requestForm['id']
-        self.form['name'] = requestForm['name']
-        self.form['address'] = requestForm['address']
-        self.form['state'] = requestForm['state']
-        self.form['city'] = requestForm['city']
-        self.form['phoneNumber'] = requestForm['phoneNumber']
-
     def form_to_model(self, obj):
         pk = int(self.form['id'])
         if pk > 0:
@@ -37,7 +29,15 @@ class CollegeCtl(BaseCtl):
         self.form['city'] = obj.city
         self.form['phoneNumber'] = obj.phoneNumber
 
-    # Validate Form
+    def request_to_form(self, requestForm):
+        self.form['id'] = requestForm['id']
+        self.form['name'] = requestForm['name']
+        self.form['address'] = requestForm['address']
+        self.form['state'] = requestForm['state']
+        self.form['city'] = requestForm['city']
+        self.form['phoneNumber'] = requestForm['phoneNumber']
+
+
     def input_validation(self):
         super().input_validation()
         inputError = self.form['inputError']

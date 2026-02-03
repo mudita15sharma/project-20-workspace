@@ -71,13 +71,14 @@
                 <tr>
                     <th>Role:</th>
                     <td>
-                        <select name="role" style="width:100%">
-                            <option value="{{ form.role }}">{{form.role}}</option>
-                            <option value="ADMIN">ADMIN</option>
-                            <option value="CONTROLLER">CONTROLLER</option>
+                        <select name="roleId" style="width:100%">
+                            <option value="{{form.roleId}}">{{ form.roleName }}</option>
+                            {% for role in roleList %}
+                                <option value="{{ role.id }}">{{ role.name }}</option>
+                            {% endfor %}
                         </select>
                     </td>
-                    <td style="position: fixed; color: red;">{{ form.inputError.gender }}</td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.roleId }}</td>
                 </tr>
                 <tr>
                     <th></th>

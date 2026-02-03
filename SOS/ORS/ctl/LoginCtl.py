@@ -33,6 +33,7 @@ class LoginCtl(BaseCtl):
         res = render(request, self.get_template(), {'form': self.form})
         return res
 
+
     def submit(self, request, params={}):
         user = self.get_service().authenticate(self.form)
         if (user is None):

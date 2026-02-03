@@ -127,3 +127,22 @@ class TimeTable(models.Model):
 
     class Meta:
         db_table = 'sos_timetable'
+
+class Reports(models.Model):
+    reportId = models.CharField(max_length=20)
+    reportName = models.CharField(max_length=50)
+    generatedDate = models.DateField()
+    generatedBy = models.CharField(max_length=50)
+    reportStatus = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'sos_reports'
+
+class Vehicle(models.Model):
+    vehicleName = models.CharField(max_length=50)
+    vehicleNumber = models.CharField(max_length=50)
+    licenseDate = models.DateField()
+    vehicleOwner = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'sos_vehicle'

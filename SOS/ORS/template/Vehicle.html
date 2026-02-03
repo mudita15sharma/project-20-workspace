@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% include "Header.html" %}
+    <form method="POST">
+        {% csrf_token %}
+        <div align="center">
+            <h1>Add Vehicle</h1>
+
+            {% if form.error %}
+                <h3><font color="red"> {{ form.message }} </font></h3>
+            {% else %}
+                <h3><font color="green"> {{ form.message }} </font></h3>
+            {% endif %}
+            <table>
+                <input type="hidden" name="id" value="{{form.id}}">
+                <tr>
+                    <th>Vehicle Name:</th>
+                    <td><input type="text" name="vehicleName" value="{{form.vehicleName}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.vehicleName }}</td>
+                </tr>
+                <tr>
+                    <th>Vehicle Number:</th>
+                    <td><input type="text" name="vehicleNumber" value="{{form.vehicleNumber}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.vehicleNumber }}</td>
+                </tr>
+                 <tr>
+                    <th>licenseDate:</th>
+                    <td><input type="date" name="licenseDate" value="{{form.licenseDate}}" style="width: 98%;"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.licenseDate }}</td>
+                </tr>
+
+                <tr>
+                    <th>Vehicle Owner:</th>
+                    <td><input type="text" name="vehicleOwner" value="{{form.vehicleOwner}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.vehicleOwner }}</td>
+                </tr>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="submit" value="save"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

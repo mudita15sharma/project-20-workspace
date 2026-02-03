@@ -12,10 +12,22 @@ from .ctl.CourseCtl import CourseCtl
 from .ctl.SubjectCtl import SubjectCtl
 from .ctl.FacultyCtl import FacultyCtl
 from .ctl.MarksheetCtl import MarksheetCtl
-
-
-
-
+from .ctl.StudentCtl import StudentCtl
+from .ctl.TimeTableCtl import TimeTableCtl
+from .ctl.UserListCtl import UserListCtl
+from .ctl.CollegeListCtl import CollegeListCtl
+from.ctl.CourseListCtl import CourseListCtl
+from .ctl.FacultyListCtl import FacultyListCtl
+from.ctl.MarksheetListCtl import MarksheetListCtl
+from .ctl.RoleListCtl import RoleListCtl
+from .ctl.StudentListCtl import StudentListCtl
+from .ctl.SubjectListCtl import SubjectListCtl
+from .ctl.TimeTableListCtl import TimeTableListCtl
+from.ctl.MarksheetMeritListCtl import MarksheetMeritListCtl
+from.ctl.ReportCtl import ReportCtl
+from .ctl.ReportListCtl import ReportListCtl
+from.ctl.VehicleCtl import VehicleCtl
+from.ctl.VehicleListCtl import VehicleListCtl
 
 @csrf_exempt
 def action(request, page="", operation="", id=0):

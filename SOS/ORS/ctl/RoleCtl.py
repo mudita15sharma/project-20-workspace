@@ -27,6 +27,7 @@ class RoleCtl(BaseCtl):
         self.form["name"] = obj.name
         self.form["description"] = obj.description
 
+
     def input_validation(self):
         super().input_validation()
         inputError = self.form['inputError']
