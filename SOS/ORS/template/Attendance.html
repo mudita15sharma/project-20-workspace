@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include "Header.html" %}
+<form method="POST">
+    {% csrf_token %}
+    <div align="center">
+        <h1>Add Attendance</h1>
+
+        {% if form.error %}
+        <h3><font color="red"> {{ form.message }} </font></h3>
+        {% else %}
+        <h3><font color="green"> {{ form.message }} </font></h3>
+        {% endif %}
+        <table>
+            <input type="hidden" name="id" value="{{form.id}}">
+            <tr>
+                <th>Attendance Id:</th>
+                <td><input type="text" name="attendanceId" value="{{form.attendanceId}}"></td>
+                <td style="position: fixed; color: red;">{{ form.inputError.attendanceId }}</td>
+            </tr>
+            <tr>
+                <th>Person Name:</th>
+                <td><input type="text" name="personName" value="{{form.personName}}"></td>
+                <td style="position: fixed; color: red;">{{ form.inputError.personName }}</td>
+            </tr>
+            <tr>
+                <th>Attendance Date:</th>
+                <td><input type="date" name="attendanceDate" value="{{form.attendanceDate}}" style="width: 98%;"></td>
+                <td style="position: fixed; color: red;">{{ form.inputError.attendanceDate }}</td>
+            </tr>
+
+            <tr>
+                <th>Attendance Status:</th>
+                <td>
+                    <select name="attendanceStatus" style="width:100%">
+                        <option value="{{ form.attendanceStatus }}">{{form.attendanceStatus}}</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </td>
+                <td style="position: fixed; color: red;">{{ form.inputError.attendanceStatus }}</td>
+                <td style="position: fixed; color: red;">{{ form.inputError.attendanceStatus }}</td>
+
+            </tr>
+            </tr>
+            <tr>
+                <th>remarks:</th>
+                <td><input type="text" name="remarks" value="{{form.remarks}}"></td>
+                <td style="position: fixed; color: red;">{{ form.inputError.remarks }}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="save"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>

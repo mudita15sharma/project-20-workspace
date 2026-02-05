@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% include "Header.html" %}
+    <form method="POST">
+        {% csrf_token %}
+        <div align="center">
+            <h1>Add Inquiry</h1>
+            {% if form.error %}
+                <h3><font color="red"> {{ form.message }} </font></h3>
+            {% else %}
+                <h3><font color="green"> {{ form.message }} </font></h3>
+            {% endif %}
+
+            <table>
+                <input type="hidden" name="id" value="{{form.id}}">
+
+                <tr>
+                    <th>Inquiry Id:</th>
+                    <td><input type="text" name="inquiryId" value="{{form.inquiryId}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.inquiryId }}</td>
+                </tr>
+
+                <tr>
+                    <th>Inquiry Name:</th>
+                    <td><input type="text" name="inquiryName" value="{{form.inquiryName}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.inquiryName }}</td>
+                </tr>
+
+                <tr>
+                    <th>Inquiry Date:</th>
+                    <td><input type="date" name="inquiryDate" value="{{form.inquiryDate}}" style="width: 98%;"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.inquiryDate }}</td>
+                </tr>
+
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="text" name="email" value="{{form.email}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.email }}</td>
+                </tr>
+
+                <tr>
+                    <th>Inquiry Subject:</th>
+                    <td><input type="text" name="inquirySubject" value="{{form.inquirySubject}}"></td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.inquirySubject }}</td>
+                </tr>
+
+                <tr>
+                    <th>Inquiry Status:</th>
+                    <td>
+                        <select name="inquiryStatus" style="width:100%">
+                            <option value="{{ form.inquiryStatus }}">{{form.inquiryStatus}}</option>
+                            <option value="Completed">Completed</option>
+                            <option value="InComplete">InComplete</option>
+                            <option value="Ongoing">Ongoing</option>
+
+                        </select>
+                    </td>
+                    <td style="position: fixed; color: red;">{{ form.inputError.inquiryStatus }}</td>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <td><input type="submit" value="save"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

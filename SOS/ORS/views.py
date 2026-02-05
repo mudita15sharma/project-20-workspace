@@ -28,6 +28,11 @@ from.ctl.ReportCtl import ReportCtl
 from .ctl.ReportListCtl import ReportListCtl
 from.ctl.VehicleCtl import VehicleCtl
 from.ctl.VehicleListCtl import VehicleListCtl
+from.ctl.AttendanceCtl import AttendanceCtl
+from.ctl.AttendanceListCtl import AttendanceListCtl
+from .ctl.InquiryCtl import InquiryCtl
+from.ctl.InquiryListCtl import InquiryListCtl
+from.ctl.ForgetPasswordCtl import ForgetPasswordCtl
 
 @csrf_exempt
 def action(request, page="", operation="", id=0):

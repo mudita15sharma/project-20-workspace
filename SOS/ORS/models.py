@@ -146,3 +146,25 @@ class Vehicle(models.Model):
 
     class Meta:
         db_table = 'sos_vehicle'
+
+class Attendance (models.Model):
+    attendanceId = models.IntegerField()
+    personName = models.CharField(max_length=50)
+    attendanceDate = models.DateField()
+    attendanceStatus = models.CharField(max_length=50)
+    remarks = models.CharField(max_length=500)
+
+    class Meta:
+        db_table = 'sos_attendance'
+
+class Inquiry(models.Model):
+    inquiryId = models.IntegerField()
+    inquiryName = models.CharField(max_length=50)
+    inquiryDate = models.DateField()
+    email = models.EmailField()
+    inquirySubject = models.CharField(max_length=50)
+    inquiryStatus = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'sos_inquiry'
+

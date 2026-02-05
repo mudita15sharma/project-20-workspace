@@ -1,4 +1,3 @@
-from ..service.CollegeService import CollegeService
 from .BaseCtl import BaseCtl
 from django.shortcuts import render
 from ..utility.DataValidator import DataValidator
